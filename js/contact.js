@@ -1,22 +1,34 @@
 const PaginaContato = {
     template: `
-      <div>
-        <h1>Contato</h1>
-        <p>Entre em contato conosco através do formulário abaixo:</p>
+      <div id="contact">
+        <h1>{{title}}</h1>
+        <p>{{paragraph}}</p>
         <form>
-          <label for="nome">Seu Nome:</label>
-          <input type="text" id="nome" name="nome"><br><br>
+          <label for="nome">{{nameInputLabel}}</label><br>
+          <input type="text" id="nome" name="nome"><br>
+          
+          <label for="email">{{emailInputLabel}}</label><br>
+          <input type="email" id="email" name="email"><br>
   
-          <label for="mensagem">Mensagem:</label><br>
-          <textarea id="mensagem" name="mensagem"></textarea><br><br>
+          <label for="mensagem">{{messageInputLabel}}</label><br>
+          <textarea id="mensagem" name="mensagem"></textarea>
   
-          <button type="button" @click="cliquei">Enviar</button>
+          <button type="submit" @click="submitContactForm">Enviar</button>
         </form>
       </div>
     `,
+    data() {
+        return {
+            title: "Entre em contato",
+            paragraph : "Gostaria de uma gambiarra na sua vida? entre em contato com a gente!",
+            nameInputLabel: "Seu nome:",
+            emailInputLabel: "Email de contato",
+            messageInputLabel: "Descreva sua situação:"
+        }
+    },
     methods: {
-        cliquei() {
-            alert('click!')
+        submitContactForm() {
+            alert('Contato enviado com sucesso!')
         }
     },
 };
